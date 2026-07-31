@@ -314,6 +314,7 @@ th,td{padding:10px}
 .carousel-cover,.reels-cover{aspect-ratio:auto;min-height:220px}
 .queue-filters{margin:0 12px 12px;grid-template-columns:1fr}
 .filter-actions{display:grid;grid-template-columns:1fr 1fr}
+html{scroll-padding-bottom:82px}
 .mobile-workbench-tabs{position:sticky;top:0;z-index:5;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:8px 12px;border-bottom:1px solid var(--border);background:var(--surface-raised)}
 .mobile-workbench-tabs button{min-height:44px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--ink);font-weight:700}
 .mobile-workbench-tabs button[aria-selected=true]{border-color:var(--accent);background:var(--accent);color:#fff}
