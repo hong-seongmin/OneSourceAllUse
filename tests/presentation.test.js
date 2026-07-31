@@ -10,6 +10,7 @@ import {
   operationLabel,
   statusPresentation
 } from '../apps/web/presentation.js';
+import { inboxSortOptions, resolveInboxSort } from '../apps/web/inbox-sort.js';
 
 function luminance(hex) {
   const values = hex.match(/[a-f\d]{2}/giu).map((value) => Number.parseInt(value, 16) / 255);
@@ -34,6 +35,16 @@ test('presentation labels never fall through to raw internal identifiers', () =>
   assert.equal(assuranceLabel('LOW_ASSURANCE'), '생성 Provider와 동일 · 보증 낮음');
   assert.equal(statusPresentation('unknown_status').label, '상태 확인 필요');
   assert.equal(evidencePresentation('unknown_state').label, '근거 상태 확인 필요');
+});
+
+test('inbox sort uses published time by default and only accepts allowlisted modes', () => {
+  assert.equal(resolveInboxSort(undefined), 'published_desc');
+  assert.equal(resolveInboxSort('not-a-sort'), 'published_desc');
+  assert.equal(resolveInboxSort('updated_desc'), 'updated_desc');
+  assert.match(inboxSortOptions.published_desc.orderBy, /published_at DESC NULLS LAST/u);
+  assert.match(inboxSortOptions.published_desc.orderBy, /updated_at DESC/u);
+  assert.match(inboxSortOptions.title_asc.orderBy, /title ASC/u);
+  assert.ok(!Object.values(inboxSortOptions).some((option) => /;|--/u.test(option.orderBy)));
 });
 
 test('interactive contrast tokens meet the manual WCAG contracts', async () => {
