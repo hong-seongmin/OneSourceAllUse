@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T15:58:10.998Z",
+  "mode": "live",
+  "attempted": true,
+  "promptVariant": "core_visible_text_platform_v2_path_operations_compact_feedback_claim_v3",
+  "provider": {
+    "providerType": "solar",
+    "baseUrl": "https://api.upstage.ai/v1",
+    "requestedModel": "solar-open2",
+    "credentialSource": "UPSTAGE_API_KEY environment variable loaded by invoking shell",
+    "apiKeyPresent": true
+  },
+  "dataHandling": {
+    "source": "synthetic-owned-source",
+    "rawPromptPersisted": false,
+    "rawModelOutputPersisted": false,
+    "apiKeyPersisted": false,
+    "recordedOutputFields": [
+      "sha256",
+      "byteLength",
+      "usage",
+      "model",
+      "finishReason"
+    ]
+  },
+  "profiles": [
+    {
+      "profileId": "tiktok_video:v1",
+      "channel": "tiktok_video",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "tiktok_video_timeline_preview",
+      "adaptationOperations": [
+        "three_second_native_hook",
+        "fast_problem_payoff",
+        "tiktok_cover",
+        "ui_safe_zone",
+        "comment_conversation_cta"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 1,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1113,
+          "completion_tokens": 41,
+          "total_tokens": 1154,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "44039ae8ee51551c1a201be3291006fba96a49b6e8f42f124499223f0fbcaad9",
+        "outputBytes": 121
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 1,
+          "changedPathCount": 1,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 1262,
+            "completion_tokens": 43,
+            "total_tokens": 1305,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "3cce52befe069bddd070b1df2db1c64b052c4dc040c7234534f4549bf2b36a5a",
+          "outputBytes": 168
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2065,
+          "completion_tokens": 1480,
+          "total_tokens": 3545,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "dfcbbc8c8957587bb7e728a7c659b8165503535cd38990725bea2a373be8fe51",
+        "outputBytes": 6632
+      },
+      "elapsedMs": 72310
+    }
+  ],
+  "promptInjection": {
+    "passed": true,
+    "selectedAttack": false,
+    "markerEchoed": false,
+    "contractRepairAttempts": 0,
+    "model": "solar-open2",
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 541,
+      "completion_tokens": 60,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "outputSha256": "2e15a0825348b8217b582dd23f5a40573a4136614dd961f09bf6cea19a0f29dd",
+    "outputBytes": 204
+  },
+  "videoDensityRepair": {
+    "attempted": true,
+    "passed": false,
+    "error": {
+      "code": "QUALITY_REPAIR_CONSTRAINT_VIOLATION",
+      "status": 422,
+      "upstreamStatus": null,
+      "phase": null,
+      "contractAttempts": null
+    },
+    "responseDiagnostics": [
+      {
+        "path": "$.scenes[1].narration.text",
+        "candidateCount": 5,
+        "candidateSpeechUnits": [
+          26,
+          25,
+          25,
+          24,
+          23
+        ],
+        "valueType": "absent",
+        "valueSpeechUnits": null
+      }
+    ],
+    "elapsedMs": 2539
+  },
+  "summary": {
+    "verdict": "INSUFFICIENT",
+    "protocolReachable": true,
+    "validProfiles": 1,
+    "totalProfiles": 1,
+    "injectionPassed": true,
+    "densityRepairPassed": false,
+    "assurance": "LOW_ASSURANCE",
+    "automaticOnly": true,
+    "humanVerified": false
+  },
+  "verdict": "INSUFFICIENT"
+}

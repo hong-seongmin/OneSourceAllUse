@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T11:08:35.118Z",
+  "mode": "live",
+  "runLabel": "youtube-only-network-eai-again",
+  "attempted": true,
+  "promptVariant": "core_visible_text_platform_v2_path_operations_compact_feedback_claim_v3",
+  "provider": {
+    "providerType": "solar",
+    "baseUrl": "https://api.upstage.ai/v1",
+    "requestedModel": "solar-open2",
+    "credentialSource": "UPSTAGE_API_KEY environment variable loaded by invoking shell",
+    "apiKeyPresent": true
+  },
+  "dataHandling": {
+    "source": "synthetic-owned-source",
+    "rawPromptPersisted": false,
+    "rawModelOutputPersisted": false,
+    "apiKeyPersisted": false,
+    "recordedOutputFields": [
+      "sha256",
+      "byteLength",
+      "usage",
+      "model",
+      "finishReason"
+    ]
+  },
+  "profiles": [
+    {
+      "profileId": "youtube_shorts:v1",
+      "channel": "youtube_shorts",
+      "passed": false,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "error": {
+        "code": "EAI_AGAIN",
+        "status": null,
+        "upstreamStatus": null,
+        "phase": null,
+        "contractAttempts": null
+      },
+      "elapsedMs": 16250
+    }
+  ],
+  "promptInjection": {
+    "passed": false,
+    "error": {
+      "code": "EAI_AGAIN",
+      "status": null,
+      "upstreamStatus": null,
+      "phase": null,
+      "contractAttempts": null
+    }
+  },
+  "summary": {
+    "verdict": "INSUFFICIENT",
+    "protocolReachable": true,
+    "validProfiles": 0,
+    "totalProfiles": 1,
+    "injectionPassed": false,
+    "assurance": "LOW_ASSURANCE",
+    "automaticOnly": true,
+    "humanVerified": false
+  },
+  "verdict": "INSUFFICIENT"
+}

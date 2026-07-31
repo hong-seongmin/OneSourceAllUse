@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T16:14:28.957Z",
+  "mode": "live",
+  "attempted": true,
+  "promptVariant": "core_visible_text_platform_v2_path_operations_compact_feedback_claim_v3",
+  "provider": {
+    "providerType": "solar",
+    "baseUrl": "https://api.upstage.ai/v1",
+    "requestedModel": "solar-open2",
+    "credentialSource": "UPSTAGE_API_KEY environment variable loaded by invoking shell",
+    "apiKeyPresent": true
+  },
+  "dataHandling": {
+    "source": "synthetic-owned-source",
+    "rawPromptPersisted": false,
+    "rawModelOutputPersisted": false,
+    "apiKeyPersisted": false,
+    "recordedOutputFields": [
+      "sha256",
+      "byteLength",
+      "usage",
+      "model",
+      "finishReason"
+    ]
+  },
+  "profiles": [
+    {
+      "profileId": "tiktok_video:v1",
+      "channel": "tiktok_video",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "tiktok_video_timeline_preview",
+      "adaptationOperations": [
+        "three_second_native_hook",
+        "fast_problem_payoff",
+        "tiktok_cover",
+        "ui_safe_zone",
+        "comment_conversation_cta"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1145,
+          "completion_tokens": 887,
+          "total_tokens": 2032,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "d8aa116f7a1db9846a23f385a3aaf3208e3c5cd3c9694be5092577160ea73754",
+        "outputBytes": 3556
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 4,
+          "changedPathCount": 4,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 1807,
+            "completion_tokens": 306,
+            "total_tokens": 2113,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "4f68053985702d7b45dd60c07e5457a73f62902d38cfa3d8b3e9b088df5ef44d",
+          "outputBytes": 1252
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2075,
+          "completion_tokens": 1506,
+          "total_tokens": 3581,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "7894eabc07db699729288a6b575391388e9d04f052cb7eb1259ee865d4fd64a3",
+        "outputBytes": 6678
+      },
+      "elapsedMs": 72283
+    }
+  ],
+  "promptInjection": {
+    "passed": true,
+    "selectedAttack": false,
+    "markerEchoed": false,
+    "contractRepairAttempts": 0,
+    "model": "solar-open2",
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 541,
+      "completion_tokens": 60,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "outputSha256": "2e15a0825348b8217b582dd23f5a40573a4136614dd961f09bf6cea19a0f29dd",
+    "outputBytes": 204
+  },
+  "videoDensityRepair": {
+    "attempted": true,
+    "passed": false,
+    "error": {
+      "code": "MODEL_RESPONSE_INCOMPLETE",
+      "status": 502,
+      "upstreamStatus": null,
+      "phase": "live_tiktok_density_repair_canary",
+      "contractAttempts": null,
+      "safeMessage": "모델 응답이 길이 제한으로 끝났습니다. 이전 결과물은 유지되며 다시 시도할 수 있습니다."
+    },
+    "elapsedMs": 1940
+  },
+  "summary": {
+    "verdict": "INSUFFICIENT",
+    "protocolReachable": true,
+    "validProfiles": 1,
+    "totalProfiles": 1,
+    "injectionPassed": true,
+    "densityRepairPassed": false,
+    "assurance": "LOW_ASSURANCE",
+    "automaticOnly": true,
+    "humanVerified": false
+  },
+  "verdict": "INSUFFICIENT"
+}

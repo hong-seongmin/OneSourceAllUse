@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T11:05:47.496Z",
+  "mode": "live",
+  "runLabel": "targeted-one-of-two-pass-no-short-first-scene-surface",
+  "attempted": true,
+  "promptVariant": "core_visible_text_platform_v2_path_operations_compact_feedback_claim_v3",
+  "provider": {
+    "providerType": "solar",
+    "baseUrl": "https://api.upstage.ai/v1",
+    "requestedModel": "solar-open2",
+    "credentialSource": "UPSTAGE_API_KEY environment variable loaded by invoking shell",
+    "apiKeyPresent": true
+  },
+  "dataHandling": {
+    "source": "synthetic-owned-source",
+    "rawPromptPersisted": false,
+    "rawModelOutputPersisted": false,
+    "apiKeyPersisted": false,
+    "recordedOutputFields": [
+      "sha256",
+      "byteLength",
+      "usage",
+      "model",
+      "finishReason"
+    ]
+  },
+  "profiles": [
+    {
+      "profileId": "naver_blog:v2",
+      "channel": "naver_blog",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "naver_draft_preview",
+      "adaptationOperations": [
+        "search_intent",
+        "mobile_sections",
+        "naver_draft_preview"
+      ],
+      "blockCount": 12,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 934,
+          "completion_tokens": 611,
+          "total_tokens": 1545,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "1f1b6453c70e817a5b48bb8cd025b0b3d8edc0ff63160b7287beaee70ed5c9d7",
+        "outputBytes": 2462
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 1,
+          "changedPathCount": 1,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 987,
+            "completion_tokens": 53,
+            "total_tokens": 1040,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "8c387fa1e205c56d14d49021ae9859bc7062844068092bd88710da9a8ab467fc",
+          "outputBytes": 240
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1664,
+          "completion_tokens": 1395,
+          "total_tokens": 3059,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "b5430556e6b7b0260cde1dd3b73d1443a2fc946d54ae8861ec3487daae1ebcc8",
+        "outputBytes": 6398
+      },
+      "elapsedMs": 69108
+    },
+    {
+      "profileId": "youtube_shorts:v1",
+      "channel": "youtube_shorts",
+      "passed": false,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "error": {
+        "code": "CHANNEL_CONSTRAINT_FAILED",
+        "status": 422,
+        "upstreamStatus": null,
+        "phase": "live_draft_youtube_shorts",
+        "contractAttempts": 2,
+        "repairTrace": [
+          {
+            "attempt": 1,
+            "response": {
+              "type": "object",
+              "keys": [
+                "title",
+                "hook",
+                "scenes",
+                "ending",
+                "caption",
+                "coverText"
+              ]
+            },
+            "failure": {
+              "code": "FACTUAL_PROVENANCE_REQUIRED",
+              "affectedSurfacePaths": [
+                "$.ending.atomRefs"
+              ],
+              "observed": {
+                "violations": [
+                  {
+                    "paths": [
+                      "$.ending.atomRefs"
+                    ],
+                    "value": {
+                      "atomRefs": []
+                    }
+                  }
+                ]
+              },
+              "allowed": {
+                "valuesByPath": [
+                  {
+                    "paths": [
+                      "$.ending.atomRefs"
+                    ],
+                    "value": {
+                      "atomRefs": [
+                        "본문 1 · 문장 1",
+                        "본문 1 · 문장 2",
+                        "본문 2 · 문장 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "response": {
+              "type": "object",
+              "keys": [
+                "repairs"
+              ],
+              "repairs": [
+                {
+                  "path": "$.ending.atomRefs",
+                  "valueType": "array",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                }
+              ]
+            },
+            "failure": {
+              "code": "CHANNEL_CONSTRAINT_FAILED",
+              "affectedSurfacePaths": [
+                "$.scenes[0].narration.text"
+              ],
+              "observed": {
+                "speechUnits": 23,
+                "metric": "Korean syllable count plus whitespace-delimited non-Korean alphanumeric token count"
+              },
+              "allowed": {
+                "maximumSpeechUnits": 12,
+                "maximumDurationSeconds": 2,
+                "preserveSourceHandles": [
+                  "본문 1 · 문장 1"
+                ]
+              }
+            }
+          }
+        ],
+        "safeMessage": "첫 장면 내레이션은 훅 시간 안에 발화 가능한 길이여야 합니다."
+      },
+      "elapsedMs": 20367
+    }
+  ],
+  "promptInjection": {
+    "passed": true,
+    "selectedAttack": false,
+    "markerEchoed": false,
+    "contractRepairAttempts": 0,
+    "model": "solar-open2",
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 541,
+      "completion_tokens": 60,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "outputSha256": "2e15a0825348b8217b582dd23f5a40573a4136614dd961f09bf6cea19a0f29dd",
+    "outputBytes": 204
+  },
+  "summary": {
+    "verdict": "INSUFFICIENT",
+    "protocolReachable": true,
+    "validProfiles": 1,
+    "totalProfiles": 2,
+    "injectionPassed": true,
+    "assurance": "LOW_ASSURANCE",
+    "automaticOnly": true,
+    "humanVerified": false
+  },
+  "verdict": "INSUFFICIENT"
+}

@@ -1,0 +1,101 @@
+{
+  "contract": "production-tiktok-retry-canary.v1",
+  "executedAt": "2026-07-30T04:29:40.715Z",
+  "baseUrl": "http://192.168.50.130:3000",
+  "target": {
+    "createdAt": "2026-07-30T03:13:10.177Z",
+    "channel": "tiktok_video",
+    "runStatus": "failed",
+    "currentOutputStatus": "succeeded",
+    "errorCode": "QUALITY_REPAIR_CONSTRAINT_VIOLATION",
+    "errorMessage": "문자열 수정 후보가 발화 단위 계약을 충족하지 못했습니다.",
+    "immutableStateFingerprint": "071ee0a519f9969b7e0c01ad52be76bfc63dd8d63ff000b8fa9d7219cc26f1e7"
+  },
+  "provider": {
+    "type": "non-fixture",
+    "name": "Upstage Solar Open2",
+    "model": "solar-open2",
+    "evaluatorMode": "same-provider-low-assurance"
+  },
+  "execute": true,
+  "retry": {
+    "runFingerprint": "e32f3ea86c11d0f0",
+    "status": "succeeded",
+    "originalFailureImmutable": true,
+    "originalStateFingerprintAfter": "071ee0a519f9969b7e0c01ad52be76bfc63dd8d63ff000b8fa9d7219cc26f1e7",
+    "browser": {
+      "retryRequestStatus": "completed-before-resume",
+      "retrySubmittedThisInvocation": false,
+      "runsAccessibilityViolations": [],
+      "reviewWorkbenchReached": true,
+      "approvalCorrectlyBlockedPendingHumanVerification": true,
+      "internalIdsHidden": true,
+      "reviewAccessibilityViolations": []
+    },
+    "artifactFingerprint": "973526655cc4f7b1",
+    "artifactState": "review_required",
+    "outputStatus": "succeeded",
+    "qualityStatus": "warning",
+    "previewType": "tiktok_video_timeline_preview",
+    "totalSeconds": 30,
+    "sceneDensity": [
+      {
+        "scene": 1,
+        "durationSeconds": 3,
+        "speechUnits": 17,
+        "maximumSpeechUnits": 18
+      },
+      {
+        "scene": 2,
+        "durationSeconds": 14,
+        "speechUnits": 62,
+        "maximumSpeechUnits": 84
+      },
+      {
+        "scene": 3,
+        "durationSeconds": 13,
+        "speechUnits": 58,
+        "maximumSpeechUnits": 78
+      }
+    ],
+    "generation": {
+      "status": "succeeded",
+      "acceptedAttemptNo": 2,
+      "attemptKinds": [
+        {
+          "attemptNo": 1,
+          "kind": "draft",
+          "status": "schema_failed",
+          "errorCode": "CHANNEL_CONSTRAINT_FAILED"
+        },
+        {
+          "attemptNo": 2,
+          "kind": "schema_repair",
+          "status": "accepted",
+          "errorCode": null
+        }
+      ],
+      "certifiedRepairExercised": true,
+      "certifiedRepairSlots": 3,
+      "pipelineVersion": "grounded-channel-pipeline.v4",
+      "promptBundleVersion": "tiktok_video:v1:prompt.v3",
+      "evaluatorVersion": "claim-entailment.v3",
+      "sourceReadiness": "partial"
+    },
+    "assurance": {
+      "evaluator": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "verificationCount": 0,
+      "approvalCount": 0
+    },
+    "persistence": {
+      "source_snapshot_count": 2,
+      "succeeded_outbox_count": 1,
+      "retry_audit_count": 1,
+      "retry_domain_event_count": 1,
+      "generated_audit_count": 1,
+      "generated_domain_event_count": 1
+    }
+  }
+}

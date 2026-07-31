@@ -1,0 +1,758 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T15:18:05.424Z",
+  "mode": "live",
+  "attempted": true,
+  "promptVariant": "core_visible_text_platform_v2_path_operations_compact_feedback_claim_v3",
+  "provider": {
+    "providerType": "solar",
+    "baseUrl": "https://api.upstage.ai/v1",
+    "requestedModel": "solar-open2",
+    "credentialSource": "UPSTAGE_API_KEY environment variable loaded by invoking shell",
+    "apiKeyPresent": true
+  },
+  "dataHandling": {
+    "source": "synthetic-owned-source",
+    "rawPromptPersisted": false,
+    "rawModelOutputPersisted": false,
+    "apiKeyPersisted": false,
+    "recordedOutputFields": [
+      "sha256",
+      "byteLength",
+      "usage",
+      "model",
+      "finishReason"
+    ]
+  },
+  "profiles": [
+    {
+      "profileId": "naver_blog:v2",
+      "channel": "naver_blog",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "naver_draft_preview",
+      "adaptationOperations": [
+        "search_intent",
+        "mobile_sections",
+        "naver_draft_preview"
+      ],
+      "blockCount": 14,
+      "factualBlockCount": 13,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 934,
+          "completion_tokens": 721,
+          "total_tokens": 1655,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "36099d9307bb1f1ab34cbe6766842e5f2c06dbbde125800cd0e2a9ce1ebd4bed",
+        "outputBytes": 3050
+      },
+      "qualityRepairs": [],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1919,
+          "completion_tokens": 1692,
+          "total_tokens": 3611,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "4b561b61046c196572871f0277e75bee8f5f59c544ce7cd33840ad4fbe19e571",
+        "outputBytes": 7640
+      },
+      "elapsedMs": 38219
+    },
+    {
+      "profileId": "wordpress_article:v2",
+      "channel": "wordpress_article",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "wordpress_block_preview",
+      "adaptationOperations": [
+        "excerpt",
+        "heading_hierarchy",
+        "wordpress_block_preview"
+      ],
+      "blockCount": 11,
+      "factualBlockCount": 9,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 1,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1235,
+          "completion_tokens": 247,
+          "total_tokens": 1482,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "22b4bb801292491419b6dc74b0202ea73834eaac38e0d4ce5680021caf79bd68",
+        "outputBytes": 885
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 7,
+          "changedPathCount": 7,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 2526,
+            "completion_tokens": 488,
+            "total_tokens": 3014,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "37571f572603344951128a09f88b3ba981baed237b1552f73e4e509d44c1fa35",
+          "outputBytes": 1936
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1616,
+          "completion_tokens": 1181,
+          "total_tokens": 2797,
+          "prompt_tokens_details": {
+            "cached_tokens": 1088,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "c575e2590970211205b19c529593db2ac25ed3dd2ce549d79f35d52d90a95e40",
+        "outputBytes": 5238
+      },
+      "elapsedMs": 72835
+    },
+    {
+      "profileId": "newsletter:v2",
+      "channel": "newsletter",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "newsletter_campaign_preview",
+      "adaptationOperations": [
+        "inbox_row",
+        "modular_email",
+        "plain_text",
+        "images_off"
+      ],
+      "blockCount": 10,
+      "factualBlockCount": 9,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 916,
+          "completion_tokens": 527,
+          "total_tokens": 1443,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "538c3fbab09e3affc269b718af2f9fb5d43dfbc5b86c83bdaef49186d3eae96f",
+        "outputBytes": 2106
+      },
+      "qualityRepairs": [],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1523,
+          "completion_tokens": 1007,
+          "total_tokens": 2530,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "98b12efff2d633e2c2ee88e673f1339a5362dea0b916aecb9260c57fd46f3f60",
+        "outputBytes": 4598
+      },
+      "elapsedMs": 31844
+    },
+    {
+      "profileId": "instagram_carousel:v2",
+      "channel": "instagram_carousel",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "instagram_carousel_preview",
+      "adaptationOperations": [
+        "cover_promise",
+        "swipe_sequence",
+        "visual_direction",
+        "alt_text",
+        "shared_crop"
+      ],
+      "blockCount": 21,
+      "factualBlockCount": 13,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 1,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2342,
+          "completion_tokens": 740,
+          "total_tokens": 3082,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "3384059fd23ee422445d6d543052f5c6bbce002e0a6c7233546cb3a283d38cce",
+        "outputBytes": 2300
+      },
+      "qualityRepairs": [],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2677,
+          "completion_tokens": 1695,
+          "total_tokens": 4372,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "739d58334867b600e6e4800bca6bff3b0f62559b4e279794e7a1cf8b93c6d292",
+        "outputBytes": 7431
+      },
+      "elapsedMs": 71473
+    },
+    {
+      "profileId": "youtube_shorts:v1",
+      "channel": "youtube_shorts",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "youtube_shorts_timeline_preview",
+      "adaptationOperations": [
+        "two_second_searchable_hook",
+        "self_contained_explanation",
+        "youtube_title",
+        "caption_timeline",
+        "long_form_discovery_cta"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 1,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1107,
+          "completion_tokens": 41,
+          "total_tokens": 1148,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "44039ae8ee51551c1a201be3291006fba96a49b6e8f42f124499223f0fbcaad9",
+        "outputBytes": 121
+      },
+      "qualityRepairs": [],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2121,
+          "completion_tokens": 1605,
+          "total_tokens": 3726,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "9efa820c35f5fc012d6ad1db9f08c010542b432ff014bc59371261d1d3211f8c",
+        "outputBytes": 7185
+      },
+      "elapsedMs": 43526
+    },
+    {
+      "profileId": "instagram_reels:v1",
+      "channel": "instagram_reels",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "instagram_reels_timeline_preview",
+      "adaptationOperations": [
+        "two_second_visual_hook",
+        "save_share_sequence",
+        "reels_cover_crop",
+        "ui_safe_zone",
+        "sound_off_comprehension"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1098,
+          "completion_tokens": 872,
+          "total_tokens": 1970,
+          "prompt_tokens_details": {
+            "cached_tokens": 1088,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "67cd9b6a6d63f2923f9853e950202b4527e9851c9fe6cbcee71d9767553b5828",
+        "outputBytes": 3579
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 2,
+          "changedPathCount": 2,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 1449,
+            "completion_tokens": 156,
+            "total_tokens": 1605,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "9727344adb59d982f7dc76a704c80b7ae0c8fe65f5d0d04c3dffccae7e29aff3",
+          "outputBytes": 625
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2018,
+          "completion_tokens": 1164,
+          "total_tokens": 3182,
+          "prompt_tokens_details": {
+            "cached_tokens": 1088,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "4f73d930dac59c8d50ac8c4228e9d356e5fca6f1163a6b35fe6e32207fb210f7",
+        "outputBytes": 5163
+      },
+      "elapsedMs": 70759
+    },
+    {
+      "profileId": "tiktok_video:v1",
+      "channel": "tiktok_video",
+      "passed": false,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "error": {
+        "code": "CHANNEL_CONSTRAINT_FAILED",
+        "status": 422,
+        "upstreamStatus": null,
+        "phase": "live_draft_tiktok_video",
+        "contractAttempts": 2,
+        "repairTrace": [
+          {
+            "attempt": 1,
+            "response": {
+              "type": "object",
+              "keys": [
+                "title",
+                "hook",
+                "scenes",
+                "ending",
+                "caption",
+                "coverText"
+              ]
+            },
+            "failure": {
+              "code": "CHANNEL_CONSTRAINT_FAILED",
+              "affectedSurfacePaths": [
+                "$.scenes[2].narration.text",
+                "$.scenes[2].durationSeconds",
+                "$.scenes[3].narration.text",
+                "$.scenes[3].durationSeconds",
+                "$.scenes[4].narration.text",
+                "$.scenes[4].durationSeconds",
+                "$.scenes[5].narration.text",
+                "$.scenes[5].durationSeconds"
+              ],
+              "observed": {
+                "timingViolations": [
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[2].narration.text",
+                      "$.scenes[2].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 8.666666666666666
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[3].narration.text",
+                      "$.scenes[3].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 8.666666666666666
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[4].narration.text",
+                      "$.scenes[4].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 7
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[5].narration.text",
+                      "$.scenes[5].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 8
+                  }
+                ]
+              },
+              "allowed": {
+                "completeTimingContract": {
+                  "minimumTotalSeconds": 12,
+                  "maximumTotalSeconds": 20,
+                  "firstSceneMaximumSeconds": 3,
+                  "eachSceneExclusiveMinimumSeconds": 0,
+                  "eachSceneMaximumSeconds": 20,
+                  "maximumSpeechUnitsPerSecond": 6
+                },
+                "timingConstraints": [
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[2].narration.text",
+                      "$.scenes[2].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[3].narration.text",
+                      "$.scenes[3].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[4].narration.text",
+                      "$.scenes[4].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[5].narration.text",
+                      "$.scenes[5].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "response": {
+              "type": "object",
+              "keys": [
+                "repairs"
+              ],
+              "repairs": [
+                {
+                  "path": "$.scenes[2].narration.text",
+                  "valueType": "string",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[2].durationSeconds",
+                  "valueType": "number",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[3].narration.text",
+                  "valueType": "string",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[3].durationSeconds",
+                  "valueType": "number",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[4].narration.text",
+                  "valueType": "string",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[4].durationSeconds",
+                  "valueType": "number",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[5].narration.text",
+                  "valueType": "string",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[5].durationSeconds",
+                  "valueType": "number",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                }
+              ]
+            },
+            "failure": {
+              "code": "CHANNEL_CONSTRAINT_FAILED",
+              "affectedSurfacePaths": [
+                "$.scenes[*].durationSeconds",
+                "$.scenes[2].narration.text",
+                "$.scenes[2].durationSeconds",
+                "$.scenes[3].narration.text",
+                "$.scenes[3].durationSeconds"
+              ],
+              "observed": {
+                "timingViolations": [
+                  {
+                    "code": "TOTAL_DURATION",
+                    "paths": [
+                      "$.scenes[*].durationSeconds"
+                    ],
+                    "totalSeconds": 21
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[2].narration.text",
+                      "$.scenes[2].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 6.5
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[3].narration.text",
+                      "$.scenes[3].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 6.5
+                  }
+                ]
+              },
+              "allowed": {
+                "completeTimingContract": {
+                  "minimumTotalSeconds": 12,
+                  "maximumTotalSeconds": 20,
+                  "firstSceneMaximumSeconds": 3,
+                  "eachSceneExclusiveMinimumSeconds": 0,
+                  "eachSceneMaximumSeconds": 20,
+                  "maximumSpeechUnitsPerSecond": 6
+                },
+                "timingConstraints": [
+                  {
+                    "code": "TOTAL_DURATION",
+                    "paths": [
+                      "$.scenes[*].durationSeconds"
+                    ],
+                    "minimumTotalSeconds": 12,
+                    "maximumTotalSeconds": 20
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[2].narration.text",
+                      "$.scenes[2].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[3].narration.text",
+                      "$.scenes[3].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "safeMessage": "장면 시간, 첫 훅, 내레이션 밀도 계약을 동시에 충족해야 합니다."
+      },
+      "elapsedMs": 31536
+    }
+  ],
+  "promptInjection": {
+    "passed": true,
+    "selectedAttack": false,
+    "markerEchoed": false,
+    "contractRepairAttempts": 0,
+    "model": "solar-open2",
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 541,
+      "completion_tokens": 60,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "outputSha256": "2e15a0825348b8217b582dd23f5a40573a4136614dd961f09bf6cea19a0f29dd",
+    "outputBytes": 204
+  },
+  "summary": {
+    "verdict": "INSUFFICIENT",
+    "protocolReachable": true,
+    "validProfiles": 6,
+    "totalProfiles": 7,
+    "injectionPassed": true,
+    "assurance": "LOW_ASSURANCE",
+    "automaticOnly": true,
+    "humanVerified": false
+  },
+  "verdict": "INSUFFICIENT"
+}

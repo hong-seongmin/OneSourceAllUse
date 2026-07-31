@@ -1,0 +1,671 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T11:20:45.339Z",
+  "mode": "live",
+  "runLabel": "all-seven-five-pass-wordpress-carousel-sequential-visible-failures",
+  "attempted": true,
+  "promptVariant": "core_visible_text_platform_v2_path_operations_compact_feedback_claim_v3",
+  "provider": {
+    "providerType": "solar",
+    "baseUrl": "https://api.upstage.ai/v1",
+    "requestedModel": "solar-open2",
+    "credentialSource": "UPSTAGE_API_KEY environment variable loaded by invoking shell",
+    "apiKeyPresent": true
+  },
+  "dataHandling": {
+    "source": "synthetic-owned-source",
+    "rawPromptPersisted": false,
+    "rawModelOutputPersisted": false,
+    "apiKeyPersisted": false,
+    "recordedOutputFields": [
+      "sha256",
+      "byteLength",
+      "usage",
+      "model",
+      "finishReason"
+    ]
+  },
+  "profiles": [
+    {
+      "profileId": "naver_blog:v2",
+      "channel": "naver_blog",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "naver_draft_preview",
+      "adaptationOperations": [
+        "search_intent",
+        "mobile_sections",
+        "naver_draft_preview"
+      ],
+      "blockCount": 11,
+      "factualBlockCount": 10,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 934,
+          "completion_tokens": 585,
+          "total_tokens": 1519,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "b82e932a39f4d1979ba0738e7525758165bcadaf33330a5509beaefeb5cfd60a",
+        "outputBytes": 2411
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 2,
+          "changedPathCount": 2,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 1113,
+            "completion_tokens": 161,
+            "total_tokens": 1274,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "bb98fff7a7e320d3338f4b5da24420bb131f5209e34b98ff2032802481c9175e",
+          "outputBytes": 675
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 1,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1388,
+          "completion_tokens": 31,
+          "total_tokens": 1419,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "3ee446f88b662b3c8658a2cd00028e245be3774a155ed51779c074d204a6471e",
+        "outputBytes": 93
+      },
+      "elapsedMs": 77665
+    },
+    {
+      "profileId": "wordpress_article:v2",
+      "channel": "wordpress_article",
+      "passed": false,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "error": {
+        "code": "CHANNEL_CONSTRAINT_FAILED",
+        "status": 422,
+        "upstreamStatus": null,
+        "phase": "live_draft_wordpress_article",
+        "contractAttempts": 2,
+        "repairTrace": [
+          {
+            "attempt": 1,
+            "response": {
+              "type": "object",
+              "keys": [
+                "title",
+                "excerpt",
+                "intro",
+                "sections",
+                "faq",
+                "cta",
+                "imageAltGuidance"
+              ]
+            },
+            "failure": {
+              "code": "CHANNEL_CONSTRAINT_FAILED",
+              "affectedSurfacePaths": [
+                "$.sections[0].heading"
+              ],
+              "observed": {
+                "type": "string",
+                "textPresent": true
+              },
+              "allowed": {
+                "type": "object",
+                "requiredKeys": [
+                  "text",
+                  "kind",
+                  "atomRefs"
+                ],
+                "kind": "factual",
+                "atomRefs": [
+                  "본문 1 · 문장 1",
+                  "본문 1 · 문장 2",
+                  "본문 2 · 문장 1"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "response": {
+              "type": "object",
+              "keys": [
+                "repairs"
+              ],
+              "repairs": [
+                {
+                  "path": "$.sections[0].heading",
+                  "valueType": "object",
+                  "valueKeys": [
+                    "text",
+                    "kind",
+                    "atomRefs"
+                  ],
+                  "jsonEncodedObject": false
+                }
+              ]
+            },
+            "failure": {
+              "code": "CHANNEL_CONSTRAINT_FAILED",
+              "affectedSurfacePaths": [
+                "$.sections[1].heading"
+              ],
+              "observed": {
+                "type": "string",
+                "textPresent": true
+              },
+              "allowed": {
+                "type": "object",
+                "requiredKeys": [
+                  "text",
+                  "kind",
+                  "atomRefs"
+                ],
+                "kind": "factual",
+                "atomRefs": [
+                  "본문 1 · 문장 1",
+                  "본문 1 · 문장 2",
+                  "본문 2 · 문장 1"
+                ]
+              }
+            }
+          }
+        ],
+        "safeMessage": "2번째 소제목은 text, kind, atomRefs를 가진 visible-text object여야 합니다."
+      },
+      "elapsedMs": 13138
+    },
+    {
+      "profileId": "newsletter:v2",
+      "channel": "newsletter",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "newsletter_campaign_preview",
+      "adaptationOperations": [
+        "inbox_row",
+        "modular_email",
+        "plain_text",
+        "images_off"
+      ],
+      "blockCount": 10,
+      "factualBlockCount": 9,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 916,
+          "completion_tokens": 525,
+          "total_tokens": 1441,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "29c4c9d01d05a6ab16678263b6549c38e69ee8db364a18cbd8dd78fa649b67aa",
+        "outputBytes": 2072
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 1,
+          "changedPathCount": 1,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 956,
+            "completion_tokens": 73,
+            "total_tokens": 1029,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "ecec477f20124bb6d50a698e035dd298017e95ac68fec390b456a2c2134b7829",
+          "outputBytes": 258
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1503,
+          "completion_tokens": 1014,
+          "total_tokens": 2517,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "04aad120912bf1e5f2301d9f893ce0f1b09391bca40428388371d70c40c0381e",
+        "outputBytes": 4755
+      },
+      "elapsedMs": 52323
+    },
+    {
+      "profileId": "instagram_carousel:v2",
+      "channel": "instagram_carousel",
+      "passed": false,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "error": {
+        "code": "FACTUAL_PROVENANCE_REQUIRED",
+        "status": 422,
+        "upstreamStatus": null,
+        "phase": "live_draft_instagram_carousel",
+        "contractAttempts": 2,
+        "repairTrace": [
+          {
+            "attempt": 1,
+            "response": {
+              "type": "object",
+              "keys": [
+                "cover",
+                "slides",
+                "caption",
+                "hashtags"
+              ]
+            },
+            "failure": {
+              "code": "FACTUAL_PROVENANCE_REQUIRED",
+              "affectedSurfacePaths": [
+                "$.cover.atomRefs"
+              ],
+              "observed": {
+                "atomRefs": []
+              },
+              "allowed": {
+                "atomRefs": [
+                  "본문 1 · 문장 1",
+                  "본문 1 · 문장 2",
+                  "본문 2 · 문장 1"
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "response": {
+              "type": "object",
+              "keys": [
+                "repairs"
+              ],
+              "repairs": [
+                {
+                  "path": "$.cover.atomRefs",
+                  "valueType": "array",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                }
+              ]
+            },
+            "failure": {
+              "code": "FACTUAL_PROVENANCE_REQUIRED",
+              "affectedSurfacePaths": [
+                "$.slides[0].headline.atomRefs"
+              ],
+              "observed": {
+                "atomRefs": []
+              },
+              "allowed": {
+                "atomRefs": [
+                  "본문 1 · 문장 1",
+                  "본문 1 · 문장 2",
+                  "본문 2 · 문장 1"
+                ]
+              }
+            }
+          }
+        ],
+        "safeMessage": "1번째 슬라이드 제목에 원본 위치가 필요합니다."
+      },
+      "elapsedMs": 31082
+    },
+    {
+      "profileId": "youtube_shorts:v1",
+      "channel": "youtube_shorts",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "youtube_shorts_timeline_preview",
+      "adaptationOperations": [
+        "two_second_searchable_hook",
+        "self_contained_explanation",
+        "youtube_title",
+        "caption_timeline",
+        "long_form_discovery_cta"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 1,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1109,
+          "completion_tokens": 63,
+          "total_tokens": 1172,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "d496b87b4f6658d3e84657d36a6a5d6dffc33d443de64b3f133e45d9902ec285",
+        "outputBytes": 189
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 1,
+          "changedPathCount": 1,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 1134,
+            "completion_tokens": 43,
+            "total_tokens": 1177,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "3cce52befe069bddd070b1df2db1c64b052c4dc040c7234534f4549bf2b36a5a",
+          "outputBytes": 168
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2030,
+          "completion_tokens": 1359,
+          "total_tokens": 3389,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "6c8eb864103c77b3681745b180c5d4ea39feef95e2db8f3dc6df7c2aa11fcd3b",
+        "outputBytes": 6044
+      },
+      "elapsedMs": 67644
+    },
+    {
+      "profileId": "instagram_reels:v1",
+      "channel": "instagram_reels",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "instagram_reels_timeline_preview",
+      "adaptationOperations": [
+        "two_second_visual_hook",
+        "save_share_sequence",
+        "reels_cover_crop",
+        "ui_safe_zone",
+        "sound_off_comprehension"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1098,
+          "completion_tokens": 905,
+          "total_tokens": 2003,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "53e2d52bbe4a23602364fb3da1e34049a8abab347da7157d339f524b51597ea0",
+        "outputBytes": 3637
+      },
+      "qualityRepairs": [],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2032,
+          "completion_tokens": 1588,
+          "total_tokens": 3620,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "062180e80908b28d9a85fd8400de788488cacfad03391a08f46a3311e1154df3",
+        "outputBytes": 7089
+      },
+      "elapsedMs": 54247
+    },
+    {
+      "profileId": "tiktok_video:v1",
+      "channel": "tiktok_video",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "tiktok_video_timeline_preview",
+      "adaptationOperations": [
+        "three_second_native_hook",
+        "fast_problem_payoff",
+        "tiktok_cover",
+        "ui_safe_zone",
+        "comment_conversation_cta"
+      ],
+      "blockCount": 21,
+      "factualBlockCount": 13,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1105,
+          "completion_tokens": 1025,
+          "total_tokens": 2130,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "a90a336ecdf60b4d802016a8fbdff24cd33f571b732caf403b0f110db1f4f0a0",
+        "outputBytes": 4095
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 3,
+          "changedPathCount": 3,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 1392,
+            "completion_tokens": 258,
+            "total_tokens": 1650,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "0244045b45bd69058680c0d1ce0c10b7df131893762faf7cdb65d26e71b54ac4",
+          "outputBytes": 1029
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2392,
+          "completion_tokens": 1385,
+          "total_tokens": 3777,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "9db2d601608c2b14956d2c9bdecc3282ca4c248cf860b85a92bef056c2b37ae4",
+        "outputBytes": 6151
+      },
+      "elapsedMs": 93567
+    }
+  ],
+  "promptInjection": {
+    "passed": true,
+    "selectedAttack": false,
+    "markerEchoed": false,
+    "contractRepairAttempts": 0,
+    "model": "solar-open2",
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 541,
+      "completion_tokens": 60,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "outputSha256": "2e15a0825348b8217b582dd23f5a40573a4136614dd961f09bf6cea19a0f29dd",
+    "outputBytes": 204
+  },
+  "summary": {
+    "verdict": "INSUFFICIENT",
+    "protocolReachable": true,
+    "validProfiles": 5,
+    "totalProfiles": 7,
+    "injectionPassed": true,
+    "assurance": "LOW_ASSURANCE",
+    "automaticOnly": true,
+    "humanVerified": false
+  },
+  "verdict": "INSUFFICIENT"
+}

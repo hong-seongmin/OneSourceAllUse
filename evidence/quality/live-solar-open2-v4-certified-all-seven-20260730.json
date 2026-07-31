@@ -1,0 +1,674 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-30T04:43:44.771Z",
+  "mode": "live",
+  "attempted": true,
+  "promptVariant": "core_visible_text_platform_v2_path_operations_compact_feedback_claim_v3",
+  "provider": {
+    "providerType": "solar",
+    "baseUrl": "https://api.upstage.ai/v1",
+    "requestedModel": "solar-open2",
+    "credentialSource": "UPSTAGE_API_KEY environment variable loaded by invoking shell",
+    "apiKeyPresent": true
+  },
+  "dataHandling": {
+    "source": "synthetic-owned-source",
+    "rawPromptPersisted": false,
+    "rawModelOutputPersisted": false,
+    "apiKeyPersisted": false,
+    "recordedOutputFields": [
+      "sha256",
+      "byteLength",
+      "usage",
+      "model",
+      "finishReason"
+    ]
+  },
+  "profiles": [
+    {
+      "profileId": "naver_blog:v2",
+      "channel": "naver_blog",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "naver_draft_preview",
+      "adaptationOperations": [
+        "search_intent",
+        "mobile_sections",
+        "naver_draft_preview"
+      ],
+      "blockCount": 12,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 934,
+          "completion_tokens": 619,
+          "total_tokens": 1553,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "562b86f7e36c69fe99797223ce5724f9b5a5ccc689bc3ee30fedcb0352af2c1c",
+        "outputBytes": 2509
+      },
+      "qualityRepairs": [],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1730,
+          "completion_tokens": 1298,
+          "total_tokens": 3028,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "7bff4b4079da585277529bb61610768791b0a77a7e5d8819e8d47b64af4b3d80",
+        "outputBytes": 6037
+      },
+      "elapsedMs": 50193
+    },
+    {
+      "profileId": "wordpress_article:v2",
+      "channel": "wordpress_article",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "wordpress_block_preview",
+      "adaptationOperations": [
+        "excerpt",
+        "heading_hierarchy",
+        "wordpress_block_preview"
+      ],
+      "blockCount": 11,
+      "factualBlockCount": 9,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 1,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1242,
+          "completion_tokens": 247,
+          "total_tokens": 1489,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "22b4bb801292491419b6dc74b0202ea73834eaac38e0d4ce5680021caf79bd68",
+        "outputBytes": 885
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 4,
+          "changedPathCount": 4,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 2077,
+            "completion_tokens": 312,
+            "total_tokens": 2389,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "5ae7c143db7b20f7906b700896479d74d66918824fd06b164dcc2e23b7e77a4c",
+          "outputBytes": 1276
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1767,
+          "completion_tokens": 1255,
+          "total_tokens": 3022,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "af54a5e6bf559996078bc4bcb13c7d251de62cb10cef9bd0fba1a3b6c7837f41",
+        "outputBytes": 5598
+      },
+      "elapsedMs": 71238
+    },
+    {
+      "profileId": "newsletter:v2",
+      "channel": "newsletter",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "newsletter_campaign_preview",
+      "adaptationOperations": [
+        "inbox_row",
+        "modular_email",
+        "plain_text",
+        "images_off"
+      ],
+      "blockCount": 10,
+      "factualBlockCount": 9,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 916,
+          "completion_tokens": 534,
+          "total_tokens": 1450,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "505c56e6c120b80704c9747a9cc56bbc051fe8ba77e3061308b44df51b38462c",
+        "outputBytes": 2152
+      },
+      "qualityRepairs": [],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1537,
+          "completion_tokens": 976,
+          "total_tokens": 2513,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "02d65540efca2e7c535e67f8a3b7d003831ffab8de79f062d1b4962e3a7f6eb0",
+        "outputBytes": 4355
+      },
+      "elapsedMs": 26027
+    },
+    {
+      "profileId": "instagram_carousel:v2",
+      "channel": "instagram_carousel",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "instagram_carousel_preview",
+      "adaptationOperations": [
+        "cover_promise",
+        "swipe_sequence",
+        "visual_direction",
+        "alt_text",
+        "shared_crop"
+      ],
+      "blockCount": 23,
+      "factualBlockCount": 15,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 1,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1588,
+          "completion_tokens": 390,
+          "total_tokens": 1978,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "414977b4063335847486fb49caa70ff30cb95db98daeaa004c8d6ac1d5af9b69",
+        "outputBytes": 1222
+      },
+      "qualityRepairs": [],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2749,
+          "completion_tokens": 2395,
+          "total_tokens": 5144,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "1b896c31ff78185d83d685a717c9fb8b54328987020a08e3e341433b23be2566",
+        "outputBytes": 10635
+      },
+      "elapsedMs": 61787
+    },
+    {
+      "profileId": "youtube_shorts:v1",
+      "channel": "youtube_shorts",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "youtube_shorts_timeline_preview",
+      "adaptationOperations": [
+        "two_second_searchable_hook",
+        "self_contained_explanation",
+        "youtube_title",
+        "caption_timeline",
+        "long_form_discovery_cta"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1153,
+          "completion_tokens": 1006,
+          "total_tokens": 2159,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "be59f9502251fbf509f157fc2fb2714917ad3420cfd222d1ead18fd67921ecc0",
+        "outputBytes": 4182
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 4,
+          "changedPathCount": 4,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 1813,
+            "completion_tokens": 312,
+            "total_tokens": 2125,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "3f8c5290cbf0e42f33322d7e4c67106874e59d1844ad49ffa7cc5dbb39ba8564",
+          "outputBytes": 1287
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2209,
+          "completion_tokens": 1488,
+          "total_tokens": 3697,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "9d520a05062694b2851db0b247884005b89182acd37bab390375697e5e9c20c9",
+        "outputBytes": 7236
+      },
+      "elapsedMs": 70585
+    },
+    {
+      "profileId": "instagram_reels:v1",
+      "channel": "instagram_reels",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "instagram_reels_timeline_preview",
+      "adaptationOperations": [
+        "two_second_visual_hook",
+        "save_share_sequence",
+        "reels_cover_crop",
+        "ui_safe_zone",
+        "sound_off_comprehension"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1138,
+          "completion_tokens": 923,
+          "total_tokens": 2061,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "bae4fe07b7b6178be1f13f4fb84f641d7fd95db1cb44b9373537b5378da9d4ee",
+        "outputBytes": 3827
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 2,
+          "changedPathCount": 2,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 1464,
+            "completion_tokens": 139,
+            "total_tokens": 1603,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "9fa6ef946b022735110b21e59b3da84a5b24aca66cbb4015959e9ddee64304ac",
+          "outputBytes": 535
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2181,
+          "completion_tokens": 1614,
+          "total_tokens": 3795,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "13cabcf7302cdfe060ec23121cb5dd4fddb04889b0460a1f2de59cc0f84d270b",
+        "outputBytes": 7320
+      },
+      "elapsedMs": 58076
+    },
+    {
+      "profileId": "tiktok_video:v1",
+      "channel": "tiktok_video",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "tiktok_video_timeline_preview",
+      "adaptationOperations": [
+        "three_second_native_hook",
+        "fast_problem_payoff",
+        "tiktok_cover",
+        "ui_safe_zone",
+        "comment_conversation_cta"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 1145,
+          "completion_tokens": 888,
+          "total_tokens": 2033,
+          "prompt_tokens_details": {
+            "cached_tokens": 1088,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "ef34e75e28090001daafbe9f429e7c80a1f6f95905a86c17e98f01238d0a4afd",
+        "outputBytes": 3675
+      },
+      "qualityRepairs": [
+        {
+          "repairNo": 1,
+          "targetBlockCount": 4,
+          "changedPathCount": 4,
+          "model": "solar-open2",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 1868,
+            "completion_tokens": 313,
+            "total_tokens": 2181,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "outputSha256": "fa221b424d566f1b89e6c9ddbcbb5ca7ca8447006bf15bac52c297be3e31c7a6",
+          "outputBytes": 1312
+        }
+      ],
+      "evaluator": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2114,
+          "completion_tokens": 1435,
+          "total_tokens": 3549,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "93dceaedcb9b8027cad294afa4298558cc28e1f3fe6b6b4438f6c3e50d774c22",
+        "outputBytes": 6194
+      },
+      "elapsedMs": 68537
+    }
+  ],
+  "promptInjection": {
+    "passed": true,
+    "selectedAttack": false,
+    "markerEchoed": false,
+    "contractRepairAttempts": 0,
+    "model": "solar-open2",
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 541,
+      "completion_tokens": 60,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "outputSha256": "2e15a0825348b8217b582dd23f5a40573a4136614dd961f09bf6cea19a0f29dd",
+    "outputBytes": 204
+  },
+  "videoDensityRepair": {
+    "attempted": true,
+    "passed": true,
+    "contractVersion": "server-certified-narration.v1",
+    "path": "$.scenes[1].narration.text",
+    "priorSpeechUnits": 49,
+    "selectedSpeechUnits": 26,
+    "maximumSpeechUnits": 30,
+    "durationPreserved": true,
+    "unaffectedSourceHandlesPreserved": true,
+    "selectedSourceHandlesCertified": true,
+    "candidateCount": 24,
+    "selectionOrigin": "provider_selected",
+    "atomRefCount": 1,
+    "findingCodes": [],
+    "model": "solar-open2",
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 3264,
+      "completion_tokens": 44,
+      "total_tokens": 3308,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "outputSha256": "a4fa297f0b04a7f8a881e0870f615a875b4c1a11ffdea02ed7400114eae6ccb6",
+    "outputBytes": 93,
+    "evaluator": {
+      "contractRepairAttempts": 0,
+      "model": "solar-open2",
+      "finishReason": "stop",
+      "usage": {
+        "prompt_tokens": 510,
+        "completion_tokens": 147,
+        "total_tokens": 657,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "outputSha256": "30799062733d1660ae22bb32b838ca1f2def5bcd76b55a3c7ee5458084db0af4",
+      "outputBytes": 620
+    },
+    "elapsedMs": 4464
+  },
+  "summary": {
+    "verdict": "PASS",
+    "protocolReachable": true,
+    "validProfiles": 7,
+    "totalProfiles": 7,
+    "injectionPassed": true,
+    "densityRepairPassed": true,
+    "assurance": "LOW_ASSURANCE",
+    "automaticOnly": true,
+    "humanVerified": false
+  },
+  "verdict": "PASS"
+}

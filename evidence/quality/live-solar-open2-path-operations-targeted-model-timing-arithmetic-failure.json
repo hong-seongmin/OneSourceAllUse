@@ -1,0 +1,449 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T10:57:31.547Z",
+  "mode": "live",
+  "runLabel": "targeted-one-of-two-pass-model-timing-arithmetic-failure",
+  "attempted": true,
+  "promptVariant": "core_visible_text_platform_v2_path_operations_compact_feedback_claim_v3",
+  "provider": {
+    "providerType": "solar",
+    "baseUrl": "https://api.upstage.ai/v1",
+    "requestedModel": "solar-open2",
+    "credentialSource": "UPSTAGE_API_KEY environment variable loaded by invoking shell",
+    "apiKeyPresent": true
+  },
+  "dataHandling": {
+    "source": "synthetic-owned-source",
+    "rawPromptPersisted": false,
+    "rawModelOutputPersisted": false,
+    "apiKeyPersisted": false,
+    "recordedOutputFields": [
+      "sha256",
+      "byteLength",
+      "usage",
+      "model",
+      "finishReason"
+    ]
+  },
+  "profiles": [
+    {
+      "profileId": "naver_blog:v2",
+      "channel": "naver_blog",
+      "passed": true,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "previewType": "naver_draft_preview",
+      "adaptationOperations": [
+        "search_intent",
+        "mobile_sections",
+        "naver_draft_preview"
+      ],
+      "blockCount": 14,
+      "factualBlockCount": 13,
+      "findingCodes": [],
+      "draft": {
+        "contractRepairAttempts": 0,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 934,
+          "completion_tokens": 716,
+          "total_tokens": 1650,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "17bb3dfdbb606752c19cfcff1cd767a700176050a6fb05a35b7c332eff384c40",
+        "outputBytes": 2959
+      },
+      "qualityRepairs": [],
+      "evaluator": {
+        "contractRepairAttempts": 1,
+        "model": "solar-open2",
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 2734,
+          "completion_tokens": 1060,
+          "total_tokens": 3794,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "outputSha256": "c219ac56430c8bcc99984f80132aed690b904cfbb648239570ef02c4137a0145",
+        "outputBytes": 5173
+      },
+      "elapsedMs": 68207
+    },
+    {
+      "profileId": "youtube_shorts:v1",
+      "channel": "youtube_shorts",
+      "passed": false,
+      "assurance": "LOW_ASSURANCE",
+      "automaticOnly": true,
+      "humanVerified": false,
+      "error": {
+        "code": "CHANNEL_CONSTRAINT_FAILED",
+        "status": 422,
+        "upstreamStatus": null,
+        "phase": "live_draft_youtube_shorts",
+        "contractAttempts": 2,
+        "repairTrace": [
+          {
+            "attempt": 1,
+            "response": {
+              "type": "object",
+              "keys": [
+                "title",
+                "hook",
+                "scenes",
+                "ending",
+                "caption",
+                "coverText"
+              ]
+            },
+            "failure": {
+              "code": "CHANNEL_CONSTRAINT_FAILED",
+              "affectedSurfacePaths": [
+                "$.scenes[*].durationSeconds",
+                "$.scenes[0].narration.text",
+                "$.scenes[0].durationSeconds",
+                "$.scenes[1].narration.text",
+                "$.scenes[1].durationSeconds",
+                "$.scenes[2].narration.text",
+                "$.scenes[2].durationSeconds",
+                "$.scenes[3].narration.text",
+                "$.scenes[3].durationSeconds",
+                "$.scenes[4].narration.text",
+                "$.scenes[4].durationSeconds"
+              ],
+              "observed": {
+                "timingViolations": [
+                  {
+                    "code": "TOTAL_DURATION",
+                    "paths": [
+                      "$.scenes[*].durationSeconds"
+                    ],
+                    "totalSeconds": 10
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[0].narration.text",
+                      "$.scenes[0].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 12
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[1].narration.text",
+                      "$.scenes[1].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 8.5
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[2].narration.text",
+                      "$.scenes[2].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 13.5
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[3].narration.text",
+                      "$.scenes[3].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 13.5
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[4].narration.text",
+                      "$.scenes[4].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 7.5
+                  }
+                ]
+              },
+              "allowed": {
+                "completeTimingContract": {
+                  "minimumTotalSeconds": 12,
+                  "maximumTotalSeconds": 20,
+                  "firstSceneMaximumSeconds": 2,
+                  "eachSceneExclusiveMinimumSeconds": 0,
+                  "eachSceneMaximumSeconds": 20,
+                  "maximumSpeechUnitsPerSecond": 6
+                },
+                "timingConstraints": [
+                  {
+                    "code": "TOTAL_DURATION",
+                    "paths": [
+                      "$.scenes[*].durationSeconds"
+                    ],
+                    "minimumTotalSeconds": 12,
+                    "maximumTotalSeconds": 20
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[0].narration.text",
+                      "$.scenes[0].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[1].narration.text",
+                      "$.scenes[1].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[2].narration.text",
+                      "$.scenes[2].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[3].narration.text",
+                      "$.scenes[3].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[4].narration.text",
+                      "$.scenes[4].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "attempt": 2,
+            "response": {
+              "type": "object",
+              "keys": [
+                "repairs"
+              ],
+              "repairs": [
+                {
+                  "path": "$.scenes[0].durationSeconds",
+                  "valueType": "number",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[0].narration.text",
+                  "valueType": "string",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[1].durationSeconds",
+                  "valueType": "number",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[1].narration.text",
+                  "valueType": "string",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[2].durationSeconds",
+                  "valueType": "number",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[2].narration.text",
+                  "valueType": "string",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[3].durationSeconds",
+                  "valueType": "number",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[3].narration.text",
+                  "valueType": "string",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[4].durationSeconds",
+                  "valueType": "number",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                },
+                {
+                  "path": "$.scenes[4].narration.text",
+                  "valueType": "string",
+                  "valueKeys": [],
+                  "jsonEncodedObject": false
+                }
+              ]
+            },
+            "failure": {
+              "code": "CHANNEL_CONSTRAINT_FAILED",
+              "affectedSurfacePaths": [
+                "$.scenes[0].durationSeconds",
+                "$.scenes[0].narration.text",
+                "$.scenes[2].narration.text",
+                "$.scenes[2].durationSeconds",
+                "$.scenes[3].narration.text",
+                "$.scenes[3].durationSeconds"
+              ],
+              "observed": {
+                "timingViolations": [
+                  {
+                    "code": "HOOK_DURATION",
+                    "paths": [
+                      "$.scenes[0].durationSeconds"
+                    ],
+                    "durationSeconds": 3
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[0].narration.text",
+                      "$.scenes[0].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 8
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[2].narration.text",
+                      "$.scenes[2].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 9
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[3].narration.text",
+                      "$.scenes[3].durationSeconds"
+                    ],
+                    "speechUnitsPerSecond": 9
+                  }
+                ]
+              },
+              "allowed": {
+                "completeTimingContract": {
+                  "minimumTotalSeconds": 12,
+                  "maximumTotalSeconds": 20,
+                  "firstSceneMaximumSeconds": 2,
+                  "eachSceneExclusiveMinimumSeconds": 0,
+                  "eachSceneMaximumSeconds": 20,
+                  "maximumSpeechUnitsPerSecond": 6
+                },
+                "timingConstraints": [
+                  {
+                    "code": "HOOK_DURATION",
+                    "paths": [
+                      "$.scenes[0].durationSeconds"
+                    ],
+                    "maximumDurationSeconds": 2
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[0].narration.text",
+                      "$.scenes[0].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[2].narration.text",
+                      "$.scenes[2].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  },
+                  {
+                    "code": "NARRATION_DENSITY",
+                    "paths": [
+                      "$.scenes[3].narration.text",
+                      "$.scenes[3].durationSeconds"
+                    ],
+                    "maximumSpeechUnitsPerSecond": 6
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "safeMessage": "장면 시간, 첫 훅, 내레이션 밀도 계약을 동시에 충족해야 합니다."
+      },
+      "elapsedMs": 29388
+    }
+  ],
+  "promptInjection": {
+    "passed": true,
+    "selectedAttack": false,
+    "markerEchoed": false,
+    "contractRepairAttempts": 0,
+    "model": "solar-open2",
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 541,
+      "completion_tokens": 60,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "outputSha256": "2e15a0825348b8217b582dd23f5a40573a4136614dd961f09bf6cea19a0f29dd",
+    "outputBytes": 204
+  },
+  "summary": {
+    "verdict": "INSUFFICIENT",
+    "protocolReachable": true,
+    "validProfiles": 1,
+    "totalProfiles": 2,
+    "injectionPassed": true,
+    "assurance": "LOW_ASSURANCE",
+    "automaticOnly": true,
+    "humanVerified": false
+  },
+  "verdict": "INSUFFICIENT"
+}

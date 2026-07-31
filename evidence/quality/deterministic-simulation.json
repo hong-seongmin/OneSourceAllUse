@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-30T04:36:51.098Z",
+  "mode": "deterministic",
+  "corpus": {
+    "source": "synthetic-owned-source",
+    "sourceAtomCount": 3,
+    "selectableProfileCount": 7
+  },
+  "profiles": [
+    {
+      "profileId": "naver_blog:v2",
+      "channel": "naver_blog",
+      "passed": true,
+      "previewType": "naver_draft_preview",
+      "adaptationOperations": [
+        "search_intent",
+        "mobile_sections",
+        "naver_draft_preview"
+      ],
+      "blockCount": 9,
+      "factualBlockCount": 8,
+      "deterministicCheckCodes": [
+        "ARTICLE_SECTION_COUNT",
+        "NAVER_SEARCH_STRUCTURE",
+        "FAQ_SETTING"
+      ],
+      "findingCodes": []
+    },
+    {
+      "profileId": "wordpress_article:v2",
+      "channel": "wordpress_article",
+      "passed": true,
+      "previewType": "wordpress_block_preview",
+      "adaptationOperations": [
+        "excerpt",
+        "heading_hierarchy",
+        "wordpress_block_preview"
+      ],
+      "blockCount": 9,
+      "factualBlockCount": 7,
+      "deterministicCheckCodes": [
+        "ARTICLE_SECTION_COUNT",
+        "WORDPRESS_HEADING_HIERARCHY",
+        "FAQ_SETTING"
+      ],
+      "findingCodes": []
+    },
+    {
+      "profileId": "newsletter:v2",
+      "channel": "newsletter",
+      "passed": true,
+      "previewType": "newsletter_campaign_preview",
+      "adaptationOperations": [
+        "inbox_row",
+        "modular_email",
+        "plain_text",
+        "images_off"
+      ],
+      "blockCount": 8,
+      "factualBlockCount": 7,
+      "deterministicCheckCodes": [
+        "SUBJECT_PREHEADER_COMPLEMENT",
+        "PLAIN_TEXT_EQUIVALENCE",
+        "PREHEADER_SETTING"
+      ],
+      "findingCodes": []
+    },
+    {
+      "profileId": "instagram_carousel:v2",
+      "channel": "instagram_carousel",
+      "passed": true,
+      "previewType": "instagram_carousel_preview",
+      "adaptationOperations": [
+        "cover_promise",
+        "swipe_sequence",
+        "visual_direction",
+        "alt_text",
+        "shared_crop"
+      ],
+      "blockCount": 20,
+      "factualBlockCount": 12,
+      "deterministicCheckCodes": [
+        "EXACT_SLIDE_COUNT",
+        "ALT_TEXT_COMPLETE",
+        "SHARED_CROP"
+      ],
+      "findingCodes": []
+    },
+    {
+      "profileId": "youtube_shorts:v1",
+      "channel": "youtube_shorts",
+      "passed": true,
+      "previewType": "youtube_shorts_timeline_preview",
+      "adaptationOperations": [
+        "two_second_searchable_hook",
+        "self_contained_explanation",
+        "youtube_title",
+        "caption_timeline",
+        "long_form_discovery_cta"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "deterministicCheckCodes": [
+        "VIDEO_TARGET_DURATION",
+        "HOOK_WINDOW",
+        "SPEECH_DENSITY",
+        "CAPTION_SETTING",
+        "SAFE_ZONE_COMPLETE"
+      ],
+      "findingCodes": []
+    },
+    {
+      "profileId": "instagram_reels:v1",
+      "channel": "instagram_reels",
+      "passed": true,
+      "previewType": "instagram_reels_timeline_preview",
+      "adaptationOperations": [
+        "two_second_visual_hook",
+        "save_share_sequence",
+        "reels_cover_crop",
+        "ui_safe_zone",
+        "sound_off_comprehension"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "deterministicCheckCodes": [
+        "VIDEO_TARGET_DURATION",
+        "HOOK_WINDOW",
+        "SPEECH_DENSITY",
+        "CAPTION_SETTING",
+        "SAFE_ZONE_COMPLETE"
+      ],
+      "findingCodes": []
+    },
+    {
+      "profileId": "tiktok_video:v1",
+      "channel": "tiktok_video",
+      "passed": true,
+      "previewType": "tiktok_video_timeline_preview",
+      "adaptationOperations": [
+        "three_second_native_hook",
+        "fast_problem_payoff",
+        "tiktok_cover",
+        "ui_safe_zone",
+        "comment_conversation_cta"
+      ],
+      "blockCount": 17,
+      "factualBlockCount": 11,
+      "deterministicCheckCodes": [
+        "VIDEO_TARGET_DURATION",
+        "HOOK_WINDOW",
+        "SPEECH_DENSITY",
+        "CAPTION_SETTING",
+        "SAFE_ZONE_COMPLETE"
+      ],
+      "findingCodes": []
+    }
+  ],
+  "adversarial": [
+    {
+      "name": "out_of_plan_source_handle",
+      "expectedCode": "FACTUAL_PROVENANCE_REQUIRED",
+      "passed": true,
+      "actualCode": "FACTUAL_PROVENANCE_REQUIRED"
+    },
+    {
+      "name": "invented_editorial_cta",
+      "expectedCode": "CHANNEL_CONSTRAINT_FAILED",
+      "passed": true,
+      "actualCode": "CHANNEL_CONSTRAINT_FAILED"
+    },
+    {
+      "name": "wrong_carousel_slide_count",
+      "expectedCode": "CHANNEL_CONSTRAINT_FAILED",
+      "passed": true,
+      "actualCode": "CHANNEL_CONSTRAINT_FAILED"
+    },
+    {
+      "name": "over_dense_tiktok_narration",
+      "expectedCode": "CHANNEL_CONSTRAINT_FAILED",
+      "passed": true,
+      "actualCode": "CHANNEL_CONSTRAINT_FAILED"
+    }
+  ],
+  "crossProfile": [
+    {
+      "name": "partial_source_is_not_promoted_to_complete",
+      "passed": true,
+      "actual": "partial"
+    },
+    {
+      "name": "unsupported_claim_and_identity_are_separate_failures",
+      "passed": true,
+      "findingCodes": [
+        "SOURCE_PURPOSE_MISMATCH",
+        "UNSUPPORTED_FACTUAL_CLAIM",
+        "PERSONA_FABRICATION"
+      ]
+    },
+    {
+      "name": "all_previews_are_distinct",
+      "passed": true,
+      "actualCount": 7
+    },
+    {
+      "name": "all_adaptation_operation_sets_are_distinct",
+      "passed": true,
+      "actualCount": 7
+    },
+    {
+      "name": "same_provider_is_low_assurance",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "passedProfiles": 7,
+    "totalProfiles": 7,
+    "passedAdversarialCases": 4,
+    "totalAdversarialCases": 4,
+    "passedCrossProfileCases": 5,
+    "totalCrossProfileCases": 5
+  }
+}
