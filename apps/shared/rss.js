@@ -407,15 +407,28 @@ export async function persistEntry(db, source, entry) {
       rightsStatus: source.rights_status
     });
     await tx.query(`INSERT INTO source_snapshot_assessments
-      (snapshot_id, readiness, rights_status, usable_atom_ids, omissions, signals, acknowledgement_required)
-      VALUES ($1,$2,$3,$4::jsonb,$5::jsonb,$6::jsonb,$7)`, [
+      (snapshot_id, readiness, rights_status, usable_atom_ids, omissions, signals, acknowledgement_required, detector_version)
+      VALUES ($1,$2,$3,$4::jsonb,$5::jsonb,$6::jsonb,$7,$8)`, [
       snapshotId,
       assessment.readiness,
       assessment.rightsStatus,
       JSON.stringify(assessment.usableAtomIds),
       JSON.stringify(assessment.omissions),
       JSON.stringify(assessment.signals),
-      assessment.acknowledgementRequired
+      assessment.acknowledgementRequired,
+      assessment.detectorVersion
+    ]);
+    await tx.query(`INSERT INTO source_snapshot_assessment_events
+      (id, workspace_id, source_item_id, snapshot_id, readiness, omissions, signals, detector_version, trigger)
+      VALUES ($1,$2,$3,$4,$5,$6::jsonb,$7::jsonb,$8,'ingestion')`, [
+      id(),
+      source.workspace_id,
+      item.id,
+      snapshotId,
+      assessment.readiness,
+      JSON.stringify(assessment.omissions),
+      JSON.stringify(assessment.signals),
+      assessment.detectorVersion
     ]);
     await tx.query('UPDATE source_items SET title = $2, canonical_url = $3, published_at = $4, latest_snapshot_id = $5, updated_at = now() WHERE id = $1', [item.id, entry.title, entry.url || null, validDate(entry.publishedAt), snapshotId]);
     await recordDomainEvent(tx, { workspaceId: source.workspace_id, eventType: oldSnapshotId ? 'source.snapshot_updated' : 'source.snapshot_created', aggregateType: 'source_item', aggregateId: item.id, payload: { snapshotId } });

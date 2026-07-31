@@ -6,6 +6,7 @@ import { issue } from '../shared/errors.js';
 import { patchArtifact as applyArtifactPatch } from '../shared/patch.js';
 import { ingestTranscript, ingestYouTubeMetadata } from '../shared/connectors.js';
 import { freezeLatestRunSources } from '../shared/source-provenance.js';
+import { reassessSourceReadiness } from '../shared/source-reassessment.js';
 import {
   analyzePlannerSuggestionBatch,
   finalizePlannerSuggestion,
@@ -123,6 +124,7 @@ export async function processEvent(db, event, config) {
     case 'generate_plan_output': return generatePlanOutput(db, event.payload, config);
     case 'regenerate_artifact': return regenerateArtifact(db, event.payload, config);
     case 'patch_artifact': return patchArtifact(db, event.payload, config);
+    case 'reassess_source_readiness': return reassessSourceReadiness(db, event.payload);
     default: throw issue('UNKNOWN_JOB', `지원하지 않는 비동기 작업입니다: ${event.event_type}`, 500);
   }
 }

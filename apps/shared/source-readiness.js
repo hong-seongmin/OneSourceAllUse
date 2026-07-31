@@ -1,4 +1,5 @@
 const RIGHTS_STATUSES = new Set(['owned', 'licensed', 'unknown', 'restricted']);
+export const READINESS_DETECTOR_VERSION = 'readiness.v2';
 
 const INJECTION_PATTERNS = [
   {
@@ -11,7 +12,7 @@ const INJECTION_PATTERNS = [
   },
   {
     code: 'TOOL_EXECUTION_REQUEST',
-    pattern: /\b(?:call|invoke|use|execute|run|launch)\b[\s\S]{0,60}\b(?:tool|function|shell|terminal|command|curl|powershell|bash)\b|(?:도구|함수|셸|터미널|명령)[\s\S]{0,40}(?:호출|실행|사용)/iu
+    pattern: /\b(?:call|invoke|use|execute|run|launch)\s+(?:a|an|the|your)\s+(?:tool|function|shell|terminal|command|curl|powershell|bash)\b|\b(?:please|you\s+must|you\s+should|now)\s+(?:call|invoke|use|execute|run|launch)\b[\s\S]{0,40}\b(?:tool|function|shell|terminal|command|curl|powershell|bash)\b|(?:도구|함수|셸|터미널|명령)(?:를|을)?\s*(?:호출|실행|사용)(?:해|하세요|하라|하십시오)/iu
   },
   {
     code: 'PROMPT_BOUNDARY_IMPERSONATION',
@@ -34,7 +35,8 @@ export function detectPromptInjectionRisk(value) {
   return {
     detected: signals.length > 0,
     quarantine: signals.length > 0,
-    signals
+    signals,
+    detectorVersion: READINESS_DETECTOR_VERSION
   };
 }
 
@@ -99,7 +101,8 @@ export function assessSourceReadiness({
     usableAtomIds: usable.map((atom) => atom.id),
     omissions: unique(omissions),
     signals: unique(signals),
-    acknowledgementRequired
+    acknowledgementRequired,
+    detectorVersion: READINESS_DETECTOR_VERSION
   };
 }
 

@@ -35,6 +35,7 @@ import {
 import { recordRefreshDecision } from '../shared/freshness.js';
 import { exportMarkdown, exportWordPressDraft } from '../shared/export.js';
 import { parseJson } from '../shared/ids.js';
+import { requestSourceReadinessReassessment } from '../shared/source-reassessment.js';
 import {
   assuranceLabel,
   blockTypeLabel,
@@ -567,7 +568,7 @@ export function createApp({ db, config = {} }) {
   app.get('/app/source/:sourceItemId', protect('administrator', 'operator', 'reviewer'), async (req, res, next) => { try {
     const item = (await db.query(`SELECT i.*, s.workspace_id, s.rights_status, ss.version_no, ss.body,
         ss.ingestion_meta, assessment.readiness, assessment.omissions, assessment.signals,
-        assessment.acknowledgement_required,
+        assessment.acknowledgement_required, assessment.detector_version, assessment.assessed_at,
         COALESCE(jsonb_array_length(assessment.usable_atom_ids),0)::int AS usable_atom_count
       FROM source_items i
       JOIN sources s ON s.id=i.source_id
@@ -608,7 +609,10 @@ export function createApp({ db, config = {} }) {
     const ingestion = parseJson(item.ingestion_meta, {});
     const usable = ['complete', 'partial'].includes(item.readiness);
     const canonicalHref = safeHttpHref(item.canonical_url);
-    const readinessNotice = `<section class="notice ${usable ? (item.readiness === 'partial' ? 'warning' : 'success') : 'danger'}"><h2>${escape(readinessLabel(item.readiness))}</h2><p>권리: ${escape(rightsLabel(item.rights_status))} · 생성에 사용할 수 있는 근거 ${item.usable_atom_count}개</p>${omissions.length ? `<ul>${omissions.map((entry) => `<li>${escape(entry)}</li>`).join('')}</ul>` : '<p>수집 범위에서 알려진 누락이 없습니다.</p>'}${parseJson(item.signals, []).length ? '<p><strong>보안 또는 수집 경고 신호가 기록되어 있습니다. 격리 상태에서는 생성할 수 없습니다.</strong></p>' : ''}${ingestion.bodyKind ? `<small>수집 본문 유형: ${escape(bodyKindLabel(ingestion.bodyKind))}${ingestion.truncated ? ' · 크기 제한으로 일부 잘림' : ''}</small>` : ''}</section>`;
+    const reassessmentControl = item.readiness === 'quarantined'
+      ? `<form data-api="/api/sources/items/${item.id}/reassess-readiness" data-redirect="/app/source/${item.id}"><button class="button secondary" type="submit">보안 판정 다시 확인</button><small>현재 스냅샷은 바꾸지 않고 최신 보안 규칙으로 판정만 재평가합니다.</small></form>`
+      : '';
+    const readinessNotice = `<section class="notice ${usable ? (item.readiness === 'partial' ? 'warning' : 'success') : 'danger'}"><h2>${escape(readinessLabel(item.readiness))}</h2><p>권리: ${escape(rightsLabel(item.rights_status))} · 생성에 사용할 수 있는 근거 ${item.usable_atom_count}개</p>${omissions.length ? `<ul>${omissions.map((entry) => `<li>${escape(entry)}</li>`).join('')}</ul>` : '<p>수집 범위에서 알려진 누락이 없습니다.</p>'}${parseJson(item.signals, []).length ? '<p><strong>보안 또는 수집 경고 신호가 기록되어 있습니다. 격리 상태에서는 생성할 수 없습니다.</strong></p>' : ''}${reassessmentControl}${item.detector_version ? `<small>보안 판정 ${escape(item.detector_version)} · ${new Date(item.assessed_at).toLocaleString('ko-KR')}</small>` : ''}${ingestion.bodyKind ? `<small>수집 본문 유형: ${escape(bodyKindLabel(ingestion.bodyKind))}${ingestion.truncated ? ' · 크기 제한으로 일부 잘림' : ''}</small>` : ''}</section>`;
     const body = `<section class="object-header"><div><p class="eyebrow">원본 스냅샷 버전 ${item.version_no}</p><h2>${escape(item.title)}</h2>${canonicalHref ? `<a href="${escape(canonicalHref)}" rel="noreferrer" target="_blank">원문 열기</a>` : ''}</div>${usable ? `<a class="button primary" href="/app/planner/${item.id}">이 원본으로 계획 만들기</a>` : '<span class="help">현재 readiness에서는 생성이 차단됩니다.</span>'}</section>${readinessNotice}<div class="two-column"><section><h2>정규화된 원본 내용</h2><article class="reading-surface">${escape(item.body).replace(/\n/g, '<br>')}</article><section class="identity-context"><h2>Creator Identity 근거</h2>${identityFacts.length ? `<p>현재 버전 ${identityFacts[0].version_no} · 생성에서 잠긴 사실로만 사용됩니다.</p><ul>${identityFacts.map((fact) => `<li><strong>${escape(fact.claim)}</strong><span>${escape(fact.evidence_note)}</span><small>${escape(fact.evidence_url)}</small></li>`).join('')}</ul>` : '<p class="empty">저장된 Creator Identity 사실이 없습니다. 모델이 경력이나 경험을 만들어낼 수 없습니다.</p>'}</section></section><section><h2>원본 위치와 연결 블록</h2><ul class="atom-list">${atoms.map((atom) => {
       const links = linksByPosition.get(atom.position_label) || [];
       return `<li><strong>${escape(atom.position_label)}</strong><span>${escape(atom.text)}</span>${atom.locked ? '<small>잠긴 사실</small>' : ''}${links.length ? `<ul class="atom-links">${links.map((link) => `<li><a href="/app/review/${link.artifact_id}">${escape(link.display_name || channelName(link.channel))} · ${escape(blockTypeLabel(link.block_type))}</a><small>${escape(link.content.slice(0, 120))}</small></li>`).join('')}</ul>` : '<small>현재 결과물 블록 연결 없음</small>'}</li>`;
@@ -926,7 +930,7 @@ ${providers.map((provider) => `<article class="row-card"><div><h3>${escape(provi
             ? '실패 상태와 이전 결과물은 유지됩니다.'
             : 'Worker가 실제 모델 작업을 처리 중입니다.';
       const retry = output.status === 'failed' && canOperate && providers.length
-        ? `<form data-api="/api/plan-outputs/${output.id}/retry" data-run-result-redirect="/app/runs"><label>재시도 생성 Provider<select name="providerId" required>${retryProviderOptions}</select></label><label>재시도 평가 Provider<select name="evaluatorProviderId"><option value="">${escape(assuranceLabel('LOW_ASSURANCE'))}</option>${retryEvaluatorOptions}</select></label><small>독립 Provider를 선택하면 평가 분리가 새 실행에 영속됩니다.</small><button class="button secondary compact" type="submit">${escape(output.display_name || channelName(output.output_type))} 다시 생성</button></form>`
+        ? `<form data-api="/api/plan-outputs/${output.id}/retry" data-run-result-redirect="/app/runs"><label>재시도 생성 Provider<select name="providerId" required>${retryProviderOptions}</select></label><label>재시도 평가 Provider<select name="evaluatorProviderId"><option value="">${escape(assuranceLabel('LOW_ASSURANCE'))}</option>${retryEvaluatorOptions}</select></label><small>독립 Provider를 선택하면 평가 분리가 새 실행에 영속됩니다.</small><button class="button secondary compact" aria-label="실패한 결과물 다시 생성 · ${escape(output.display_name || channelName(output.output_type))}" type="submit">${escape(output.display_name || channelName(output.output_type))} 다시 생성</button></form>`
         : '';
       return `<tr><td data-label="채널" data-mobile-primary>${escape(output.display_name || channelName(output.output_type))}</td><td data-label="상태">${badge(output.status)}${output.artifact_state ? `<small>${escape(statusLabel(output.artifact_state))}</small>` : ''}</td><td data-label="결과물">${output.artifact_id ? `<a class="button secondary compact" href="/app/review/${escape(output.artifact_id)}">Review Workbench 열기</a>` : '생성 중'}</td><td data-label="오류와 다음 작업">${nextAction}${retry}</td></tr>`;
     }).join('') : '<tr><td colspan="4" class="empty">아직 생성한 결과물이 없습니다.</td></tr>';
@@ -976,6 +980,11 @@ ${providers.map((provider) => `<article class="row-card"><div><h3>${escape(provi
       sourceId: req.params.sourceId,
       userId: req.user.id
     })
+  })));
+  app.post('/api/sources/items/:sourceItemId/reassess-readiness', protect('administrator', 'operator'), csrf, api(async (req) => requestSourceReadinessReassessment(db, {
+    workspaceId: req.user.workspaceId,
+    sourceItemId: req.params.sourceItemId,
+    userId: req.user.id
   })));
   app.post('/api/providers', protect('administrator'), csrf, api(async (req) => ({ providerId: await saveModelProvider(db, { workspaceId: req.user.workspaceId, userId: req.user.id, name: req.body.name, providerType: req.body.providerType, baseUrl: req.body.baseUrl, model: req.body.model, apiKey: req.body.apiKey, isDefault: req.body.isDefault === true || req.body.isDefault === 'true', environment: config.environment, secretKey: config.secretKey, testMode: config.testMode, allowInsecureCredentialTransport: config.network?.allowInsecureCredentialTransport }) })));
   app.post('/api/providers/:providerId/test', protect('administrator'), csrf, api(async (req) => testProvider(db, req.user.workspaceId, req.params.providerId, config)));
