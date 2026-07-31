@@ -1,0 +1,54 @@
+import assert from 'node:assert/strict';
+import { PGlite } from '@electric-sql/pglite';
+import { chromium } from 'playwright';
+import axe from 'axe-core';
+import { bootstrapAdministrator } from '../apps/shared/auth.js';
+import { createPgliteDatabase, migrate } from '../apps/shared/db.js';
+import { createApp } from '../apps/web/server.js';
+
+const pglite = new PGlite();
+const db = createPgliteDatabase(pglite);
+await migrate(db, process.cwd());
+await bootstrapAdministrator(db, { email: 'operator@example.com', password: 'correct-horse-battery-staple' });
+const app = createApp({ db, config: { environment: 'test', testMode: true, secretKey: Buffer.alloc(32, 5).toString('base64'), network: { allowPrivateNetworks: true, allowInsecureCredentialTransport: true } } });
+const server = await new Promise((resolve) => { const listener = app.listen(0, '127.0.0.1', () => resolve(listener)); });
+const origin = `http://127.0.0.1:${server.address().port}`;
+let browser;
+try {
+  browser = await chromium.launch({ headless: true });
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await context.newPage();
+  await page.goto(`${origin}/login`);
+  await page.getByLabel('이메일').fill('operator@example.com');
+  await page.getByLabel('비밀번호').fill('correct-horse-battery-staple');
+  await page.getByRole('button', { name: '로그인' }).click();
+  await page.waitForURL(`${origin}/app/inbox`);
+  await assert.equal(await page.getByRole('heading', { name: '원본 인박스' }).count(), 1);
+  await page.getByRole('button', { name: 'RSS 원본 연결' }).focus();
+  await page.keyboard.press('Enter');
+  await assert.equal(await page.locator('#source-dialog').evaluate((dialog) => dialog.open), true, 'keyboard opens the real source connection dialog');
+  await page.keyboard.press('Escape');
+  await assert.equal(await page.locator('#source-dialog').evaluate((dialog) => dialog.open), false, 'Escape restores the modal state');
+  await page.getByRole('button', { name: 'RSS 원본 연결' }).click();
+  await page.locator('#source-dialog').getByLabel('연결 이름').fill('운영 RSS');
+  await page.getByLabel('RSS 주소').fill('https://example.com/feed.xml');
+  await page.locator('#source-dialog').getByLabel('사용 권리').selectOption('owned');
+  await page.getByRole('button', { name: '연결 추가' }).click();
+  await page.getByText('운영 RSS', { exact: true }).waitFor();
+  await assert.equal(await page.getByText('운영 RSS', { exact: true }).count() > 0, true, 'form saves a persisted source and queues a real sync');
+  await page.addScriptTag({ content: axe.source });
+  const accessibility = await page.evaluate(async () => (await axe.run(document, { rules: { 'color-contrast': { enabled: true } } })).violations.map((violation) => ({ id: violation.id, nodes: violation.nodes.length })));
+  assert.deepEqual(accessibility, [], `axe violations: ${JSON.stringify(accessibility)}`);
+  const mobile = await context.newPage();
+  await mobile.setViewportSize({ width: 390, height: 844 });
+  await mobile.goto(`${origin}/app/inbox`);
+  await assert.equal(await mobile.getByRole('navigation', { name: '주요 메뉴' }).isVisible(), true, 'mobile keeps a real navigation replacement');
+  const targetSize = await mobile.getByRole('button', { name: 'RSS 원본 연결' }).evaluate((element) => ({ width: element.getBoundingClientRect().width, height: element.getBoundingClientRect().height }));
+  assert.ok(targetSize.height >= 44, 'mobile action meets the 44px touch target');
+  await context.close();
+  console.log('e2e: PASS (desktop keyboard, persisted action, mobile navigation, axe)');
+} finally {
+  await browser?.close();
+  await new Promise((resolve) => server.close(resolve));
+  await db.close();
+}

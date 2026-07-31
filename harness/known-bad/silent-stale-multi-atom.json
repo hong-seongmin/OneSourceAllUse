@@ -1,0 +1,15 @@
+{
+  "id": "silent-stale-multi-atom",
+  "description": "Every and only block referencing a changed atom must be impacted.",
+  "expectedIssueCodes": ["SILENT_STALE_MISSING_BLOCK"],
+  "payload": {
+    "changedAtomIds": ["atom-1", "atom-4"],
+    "refs": [
+      { "artifactBlockId": "short-claim", "contentAtomId": "atom-1" },
+      { "artifactBlockId": "short-caution", "contentAtomId": "atom-4" },
+      { "artifactBlockId": "naver-section", "contentAtomId": "atom-4" },
+      { "artifactBlockId": "unaffected", "contentAtomId": "atom-3" }
+    ],
+    "actualImpactedBlockIds": ["short-caution", "naver-section"]
+  }
+}

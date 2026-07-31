@@ -1,0 +1,18 @@
+{
+  "id": "channel-constraint-failed",
+  "description": "A generated artifact must fail when a required channel constraint does not pass.",
+  "expectedIssueCodes": ["CHANNEL_CONSTRAINT_FAILED"],
+  "payload": {
+    "channelEvaluation": {
+      "channel": "short_video",
+      "constraints": [
+        {
+          "name": "duration_seconds",
+          "passed": false,
+          "actual": 94,
+          "maximum": 60
+        }
+      ]
+    }
+  }
+}

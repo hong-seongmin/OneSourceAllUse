@@ -1,0 +1,6 @@
+{
+  "id": "false-green-evidence",
+  "description": "Automatic support must not render as human verified.",
+  "expectedIssueCodes": ["FALSE_GREEN_EVIDENCE"],
+  "payload": { "display": "verified", "verificationMethod": "entity_number" }
+}

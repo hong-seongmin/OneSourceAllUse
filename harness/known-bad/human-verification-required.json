@@ -1,0 +1,20 @@
+{
+  "id": "human-verification-required",
+  "description": "Approval must not treat automatic factual support as human source verification.",
+  "expectedIssueCodes": ["HUMAN_VERIFICATION_REQUIRED"],
+  "payload": {
+    "approval": {
+      "requested": true
+    },
+    "outputBlocks": [
+      {
+        "key": "claim-1",
+        "type": "factual",
+        "content": "출시일은 7월 29일이다.",
+        "sourceAtomIds": ["atom-release-date"],
+        "automaticSupport": "supported",
+        "humanVerified": false
+      }
+    ]
+  }
+}

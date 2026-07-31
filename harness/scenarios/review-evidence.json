@@ -1,0 +1,5 @@
+{
+  "id": "review-evidence",
+  "description": "A reviewer sees verified, review-required, conflict, and not-applicable blocks in one artifact.",
+  "requiredEvidenceDisplays": ["verified", "review_required", "conflict", "not_required"]
+}

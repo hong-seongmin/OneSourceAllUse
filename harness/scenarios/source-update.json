@@ -1,0 +1,5 @@
+{
+  "id": "source-update",
+  "changedAtomIds": ["atom-1", "atom-4"],
+  "expectedImpactedBlockIds": ["naver-section", "short-caution", "short-claim"]
+}

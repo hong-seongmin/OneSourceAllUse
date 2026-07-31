@@ -1,0 +1,6 @@
+{
+  "id": "channel-copy",
+  "description": "A long-form article cannot become short video through truncation only.",
+  "expectedIssueCodes": ["CHANNEL_COPY"],
+  "payload": { "sourceStructure": "long_paragraphs", "targetStructure": "long_paragraphs", "transformation": "truncate_only" }
+}

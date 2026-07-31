@@ -1,0 +1,15 @@
+{
+  "id": "factual-provenance-required",
+  "description": "Every factual output block must persist at least one exact source atom reference.",
+  "expectedIssueCodes": ["FACTUAL_PROVENANCE_REQUIRED"],
+  "payload": {
+    "outputBlocks": [
+      {
+        "key": "section-1",
+        "type": "factual",
+        "content": "신제품은 7월에 출시됐다.",
+        "sourceAtomIds": []
+      }
+    ]
+  }
+}

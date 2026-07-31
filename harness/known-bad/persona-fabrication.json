@@ -1,0 +1,9 @@
+{
+  "id": "persona-fabrication",
+  "description": "Generated identity claims must be present in the locked creator identity facts.",
+  "expectedIssueCodes": ["PERSONA_FABRICATION"],
+  "payload": {
+    "creatorIdentityFacts": ["AI 제품을 운영한다"],
+    "generatedIdentityClaims": ["의사 자격이 있다"]
+  }
+}

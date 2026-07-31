@@ -1,0 +1,13 @@
+{
+  "id": "channel-adaptation-missing",
+  "description": "Channel generation must record structural adaptation rather than merely copy source form.",
+  "expectedIssueCodes": ["CHANNEL_ADAPTATION_MISSING"],
+  "payload": {
+    "channelEvaluation": {
+      "sourceChannel": "long_form_article",
+      "targetChannel": "instagram_carousel",
+      "adaptationRequired": true,
+      "adaptationOperations": []
+    }
+  }
+}

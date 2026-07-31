@@ -1,0 +1,6 @@
+{
+  "id": "fixture-provider-production",
+  "description": "Fixture provider must never initialize in production.",
+  "expectedIssueCodes": ["FIXTURE_PROVIDER_IN_PRODUCTION"],
+  "payload": { "nodeEnv": "production", "provider": "fixture" }
+}

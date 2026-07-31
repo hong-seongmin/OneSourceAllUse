@@ -1,0 +1,75 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-osau}
+      POSTGRES_USER: ${POSTGRES_USER:-osau}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+    volumes:
+      - osau_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  web:
+    build: .
+    restart: unless-stopped
+    command: ["sh", "-c", "node scripts/migrate.js && node apps/web/server.js"]
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      DATABASE_URL: postgresql://${POSTGRES_USER:-osau}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-osau}
+      OSAU_ADMIN_EMAIL: ${OSAU_ADMIN_EMAIL:?set OSAU_ADMIN_EMAIL}
+      OSAU_ADMIN_PASSWORD: ${OSAU_ADMIN_PASSWORD:?set OSAU_ADMIN_PASSWORD}
+      SECRET_ENCRYPTION_KEY: ${SECRET_ENCRYPTION_KEY:?set a 32-byte base64 key}
+      UPSTAGE_API_KEY: ${UPSTAGE_API_KEY:-}
+      UPSTAGE_MODEL: ${UPSTAGE_MODEL:-solar-open2}
+      OSAU_INTERNAL_NETWORK_MODE: ${OSAU_INTERNAL_NETWORK_MODE:-false}
+      OSAU_AUTH_DISABLED: ${OSAU_AUTH_DISABLED:-false}
+      # Published Docker ports normally replace the client socket peer with a
+      # bridge address. Fail closed if no-login mode is enabled without an
+      # address-preserving gateway or host-network deployment.
+      OSAU_INTERNAL_PEER_ADDRESS_PRESERVED: ${OSAU_INTERNAL_PEER_ADDRESS_PRESERVED:-false}
+      OSAU_COOKIE_SECURE: ${OSAU_COOKIE_SECURE:-true}
+      OSAU_ALLOW_PRIVATE_NETWORKS: ${OSAU_ALLOW_PRIVATE_NETWORKS:-0}
+      OSAU_MODEL_MAX_TOKENS: ${OSAU_MODEL_MAX_TOKENS:-4096}
+      OSAU_MODEL_TIMEOUT_MS: ${OSAU_MODEL_TIMEOUT_MS:-120000}
+      OSAU_MODEL_REASONING_EFFORT: ${OSAU_MODEL_REASONING_EFFORT:-none}
+      OSAU_PLANNER_CORPUS_BATCH_SIZE: ${OSAU_PLANNER_CORPUS_BATCH_SIZE:-10}
+      OSAU_PLANNER_SOURCE_CHAR_BUDGET: ${OSAU_PLANNER_SOURCE_CHAR_BUDGET:-4000}
+      OSAU_PLANNER_MAX_SUPPLEMENTAL_SOURCES: ${OSAU_PLANNER_MAX_SUPPLEMENTAL_SOURCES:-8}
+    ports:
+      - "0.0.0.0:${OSAU_PORT:-3000}:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  worker:
+    build: .
+    restart: unless-stopped
+    command: ["sh", "-c", "node scripts/migrate.js && node apps/worker/index.js"]
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://${POSTGRES_USER:-osau}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-osau}
+      SECRET_ENCRYPTION_KEY: ${SECRET_ENCRYPTION_KEY:?set a 32-byte base64 key}
+      OSAU_ALLOW_PRIVATE_NETWORKS: ${OSAU_ALLOW_PRIVATE_NETWORKS:-0}
+      OSAU_MODEL_MAX_TOKENS: ${OSAU_MODEL_MAX_TOKENS:-4096}
+      OSAU_MODEL_TIMEOUT_MS: ${OSAU_MODEL_TIMEOUT_MS:-120000}
+      OSAU_MODEL_REASONING_EFFORT: ${OSAU_MODEL_REASONING_EFFORT:-none}
+      OSAU_PLANNER_CORPUS_BATCH_SIZE: ${OSAU_PLANNER_CORPUS_BATCH_SIZE:-10}
+      OSAU_PLANNER_SOURCE_CHAR_BUDGET: ${OSAU_PLANNER_SOURCE_CHAR_BUDGET:-4000}
+      OSAU_PLANNER_MAX_SUPPLEMENTAL_SOURCES: ${OSAU_PLANNER_MAX_SUPPLEMENTAL_SOURCES:-8}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  osau_postgres:

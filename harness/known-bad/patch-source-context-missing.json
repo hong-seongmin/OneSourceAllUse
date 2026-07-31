@@ -1,0 +1,13 @@
+{
+  "id": "patch-source-context-missing",
+  "description": "Every requested partial-refresh block must receive current source context.",
+  "expectedIssueCodes": ["PATCH_SOURCE_CONTEXT_MISSING"],
+  "payload": {
+    "patch": {
+      "requestedBlockKeys": ["section-2"],
+      "sourceContextByBlock": {
+        "section-2": []
+      }
+    }
+  }
+}

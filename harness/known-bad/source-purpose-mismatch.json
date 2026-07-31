@@ -1,0 +1,12 @@
+{
+  "id": "source-purpose-mismatch",
+  "description": "Generation must stop when the available source does not support the requested purpose.",
+  "expectedIssueCodes": ["SOURCE_PURPOSE_MISMATCH"],
+  "payload": {
+    "sourceAssessment": {
+      "requestedPurpose": "medical_treatment_advice",
+      "availablePurpose": "product_release_notes",
+      "purposeCompatible": false
+    }
+  }
+}

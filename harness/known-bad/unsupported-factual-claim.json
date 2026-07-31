@@ -1,0 +1,13 @@
+{
+  "id": "unsupported-factual-claim",
+  "description": "A factual claim explicitly found unsupported by the source must fail grounding.",
+  "expectedIssueCodes": ["UNSUPPORTED_FACTUAL_CLAIM"],
+  "payload": {
+    "factualClaims": [
+      {
+        "text": "이 기능은 전환율을 40% 높인다.",
+        "supportStatus": "unsupported"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "evaluator-contract-failed",
+  "description": "Evaluator output must contain every required field and a bounded numeric confidence.",
+  "expectedIssueCodes": ["EVALUATOR_CONTRACT_FAILED"],
+  "payload": {
+    "evaluator": {
+      "requiredFields": ["verdict", "confidence", "rationale"],
+      "result": {
+        "verdict": "supported",
+        "confidence": 1.4
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "osau-production-alpha",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node apps/web/server.js",
+    "worker": "node apps/worker/index.js",
+    "migrate": "node scripts/migrate.js",
+    "build": "node scripts/build.js",
+    "test": "npm run test:quick",
+    "test:unit": "node --test tests/unit.test.js tests/platform-profiles.test.js tests/platform-adapters.test.js tests/planner-suggestions.test.js tests/rss-readiness.test.js tests/connectors.test.js tests/quality.test.js tests/presentation.test.js",
+    "test:known-bad": "node --test tests/known-bad.test.js",
+    "test:quick": "npm run test:unit && npm run test:known-bad",
+    "test:integration": "node --test tests/integration.test.js",
+    "test:quality": "node --test tests/generation-quality.test.js tests/multi-source-core.test.js tests/review-boundaries.test.js tests/worker-run-boundaries.test.js",
+    "test:e2e": "node --test tests/e2e.test.js",
+    "security:check": "node --test tests/security.test.js",
+    "container:smoke": "node --test tests/container.test.js",
+    "capture:design": "node scripts/capture-design-review.js",
+    "test:live-quality": "node scripts/live-quality-simulation.js",
+    "test:release": "node --test tests/release.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "fast-xml-parser": "^5.2.5",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.3.15",
+    "axe-core": "^4.10.3",
+    "playwright": "^1.55.1"
+  }
+}

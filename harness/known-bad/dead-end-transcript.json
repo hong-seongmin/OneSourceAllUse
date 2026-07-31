@@ -1,0 +1,6 @@
+{
+  "id": "dead-end-transcript",
+  "description": "Missing transcript must expose recovery actions.",
+  "expectedIssueCodes": ["DEAD_END_TRANSCRIPT"],
+  "payload": { "transcriptAvailable": false, "recoveryActions": [] }
+}
