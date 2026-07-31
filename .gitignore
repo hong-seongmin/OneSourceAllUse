@@ -26,3 +26,5 @@ evidence/captures/
 evidence/*.zip
 evidence/design-review-*/screens/
 evidence/design-review-*/data/
+evidence/design-review-*/README.md
+evidence/design-review-*/INCOMPLETE_DO_NOT_REVIEW.md
