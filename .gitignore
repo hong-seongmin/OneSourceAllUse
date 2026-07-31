@@ -1,0 +1,28 @@
+.harness-venv/
+node_modules/
+.next/
+dist/
+coverage/
+playwright-report/
+test-results/
+.cache/
+*.log
+node_trace.*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+# Local certificates and runtime credentials must never enter the repository.
+*.pem
+*.key
+*.p12
+*.pfx
+evidence/runs/
+# Browser captures can contain source content. Keep explicitly curated evidence
+# outside this generated directory when it must be reviewed or shared.
+evidence/captures/
+# Legacy capture outputs and archives are reproducible with
+# `npm run capture:design-review`; keep review notes, not image binaries, in Git.
+evidence/*.zip
+evidence/design-review-*/screens/
+evidence/design-review-*/data/

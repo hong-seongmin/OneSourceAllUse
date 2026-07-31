@@ -1,0 +1,6 @@
+node_modules
+.harness-venv
+evidence
+test-results
+playwright-report
+.git
